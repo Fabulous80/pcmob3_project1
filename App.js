@@ -2743,9 +2743,10 @@ const names = [
   "Zuriel",
 ];
 
-const namesAsObjects = names.map((item) => {
+const namesAsObjects = names.map((item,index) => {
   return {
     name: item,
+    id: `${index}`,
   };
 });
 
@@ -2758,7 +2759,6 @@ export default function App() {
     <FlatList
       data={namesAsObjects}
       renderItem={renderName}
-      keyExtractor={(item) => item.name}
     />
   );
 
