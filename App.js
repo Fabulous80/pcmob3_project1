@@ -2,10 +2,22 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+const names = ["Adam", "Bob", "Claire", "Dinah", "Edward", "Florence", "Gerald", "Helen", "Ivy", "June","Karen"];
+
 export default function App() {
+  
+  function displayNames(){
+    let nameJSX = [];
+    let name;
+    for (name of names){
+      nameJSX.push(<Text>{name}</Text>);
+    }
+    return nameJSX;
+  }
+  
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {displayNames()}
       <StatusBar style="auto" />
     </View>
   );
