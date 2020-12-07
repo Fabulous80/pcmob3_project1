@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, SafeAreaView} from "react-native";
 
 const names = [
   "Aaran",
@@ -2750,26 +2750,62 @@ const namesAsObjects = names.map((item,index) => {
   };
 });
 
+
+
 export default function App() {
+
+
+  
+
   function renderName({ item }) {
-    return <Text>{item.name}</Text>;
+    return (
+        <View
+        
+        
+     style={{
+      padding: 20,
+      margin: 10,
+      backgroundColor: "lightblue",
+      borderBottomColor: "#999",
+      borderBottomWidth: 1,
+      shadowColor: "black",
+      shadowRadius: 5,
+      shadowOpacity: 0.2,
+      shadowOffset: { x: 0, height: 3 },
+    }}
+>
+
+        
+        
+        
+          <Text>{item.name}</Text>
+
+        </View>
+    );
   }
 
+  
+
   return (
+    <SafeAreaView style={styles.container}>
     <FlatList
       data={namesAsObjects}
       renderItem={renderName}
     />
+    </SafeAreaView>
   );
 
   <StatusBar style="auto" />;
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    
     justifyContent: "center",
+    marginTop: StatusBar.currentHeight || 0,
+
   },
 });
